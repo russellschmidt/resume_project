@@ -58,5 +58,9 @@ module ResumeProject
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # Devise install requirement step 4; app will not access the db or load models 
+    # when precompiling assets. For Heroku deployment
+    config.assets.initialize_on_precompile = false
   end
 end

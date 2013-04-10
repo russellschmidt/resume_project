@@ -11,3 +11,16 @@
  *= require_self
  *= require_tree .
  */
+
+/* Template styling */
+body {
+  font-family: "Comic Sans MS";
+}
+
+/* Home page styling */
+#grandma {
+  display: block;
+  float: right;
+  margin-right: 2%;
+  border: none;
+}
