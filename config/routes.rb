@@ -1,11 +1,20 @@
 ResumeProject::Application.routes.draw do
-  get "home/index"
+
+  get "resume/index"
+
+  get "resume/new"
+
+  get "resume/show"
+
+  get "resume/edit"
+
+  get "resume/destroy"
 
   root :to => "home#index"
 
   devise_for :users
 
-
+  resources :resumes
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
