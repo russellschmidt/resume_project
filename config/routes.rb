@@ -1,15 +1,5 @@
 ResumeProject::Application.routes.draw do
 
-  get "resume/index"
-
-  get "resume/new"
-
-  get "resume/show"
-
-  get "resume/edit"
-
-  get "resume/destroy"
-
   root :to => "home#index"
 
   devise_for :users
