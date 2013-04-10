@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  resume_name: MyString
+  position: MyString
+  description: MyString
+  job_id: 1
+  school_id: 1
+  contact_id: 1
+  user_id: 1
+
+two:
+  resume_name: MyString
+  position: MyString
+  description: MyString
+  job_id: 1
+  school_id: 1
+  contact_id: 1
+  user_id: 1
