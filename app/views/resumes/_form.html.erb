@@ -1,0 +1,35 @@
+<%= form_for(@resume) do |resume| %>
+  <% if @resume.errors.any? %>
+    <div id="error_explanation">
+      <p><%= @resume.errors.all %></p>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= resume.label :resume_name %><br />
+    <%= resume.text_field :resume_name %>
+  </div>
+  <div class="field">
+    <%= resume.label :position %><br />
+    <%= resume.text_field :position %>
+  </div>
+  <div class="field">
+    <%= resume.label :description %><br />
+    <%= resume.text_area :description %>
+  </div>
+  <div class="field">
+    <%= resume.label :job_id %><br />
+    <%= resume.text_field :job_id %>
+  </div>
+  <div class="field">
+    <%= resume.label :school_id %><br />
+    <%= resume.text_field :school_id %>
+  </div>
+  <div class="field">
+    <%= resume.label :contact_id %><br />
+    <%= resume.text_field :contact_id %>
+  </div>
+  <div class="actions">
+    <%= resume.submit %>
+  </div>
+<% end %>

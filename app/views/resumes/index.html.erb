@@ -1,5 +1,33 @@
 <h1>Resume List for <%= current_user.email %></h1>
-
+<%= render 'signout' %>
+<%= link_to 'Create a Resume', new_resume_path %>
+<table>
+  <thead>
+    <tr>
+      <th>Resume Name</th>
+      <th>Position</th>
+      <th>Description</th>
+      <th>Job</th>
+      <th>School</th>
+      <th>Contact</th>
+      <th colspan="3">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
 <% @current_user.resumes.each do |resume| %>
-
+  <tr>
+    <td><%= resume.resume_name %></td>
+    <td><%= resume.position %></td>
+    <td><%= resume.description %></td>
+    <td><%= resume.job_id %></td>
+    <td><%= resume.school_id %></td>
+    <td><%= resume.contact_id %></td>
+    <td><%= link_to 'Show', resume %></td>
+    <td><%= link_to 'Edit', edit_resume_path(resume) if user_signed_in? %></td>
+    <td><%= link_to 'Destroy', resume, method: :delete, data: { confirm: 'Are you sure?' } if user_signed_in? %></td>
+  </tr>
 <% end %>
+  </tbody>
+  <tfoot>
+  </tfoot>
+</table>
