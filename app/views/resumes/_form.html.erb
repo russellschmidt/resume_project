@@ -1,4 +1,4 @@
-<%= form_for(@resume) do |resume| %>
+<%= form_for(@resume) do |form| %>
   <% if @resume.errors.any? %>
     <div id="error_explanation">
       <p><%= @resume.errors.all %></p>
@@ -6,30 +6,30 @@
   <% end %>
 
   <div class="field">
-    <%= resume.label :resume_name %><br />
-    <%= resume.text_field :resume_name %>
+    <%= form.label :resume_name %><br />
+    <%= form.text_field :resume_name %>
   </div>
   <div class="field">
-    <%= resume.label :position %><br />
-    <%= resume.text_field :position %>
+    <%= form.label :position %><br />
+    <%= form.text_field :position %>
   </div>
   <div class="field">
-    <%= resume.label :description %><br />
-    <%= resume.text_area :description %>
+    <%= form.label :description %><br />
+    <%= form.text_area :description %>
   </div>
   <div class="field">
-    <%= resume.label :job_id %><br />
-    <%= resume.text_field :job_id %>
+    <%= form.label :job_id %><br />
+    <%= form.text_field :job_id %>
   </div>
   <div class="field">
-    <%= resume.label :school_id %><br />
-    <%= resume.text_field :school_id %>
+    <%= form.label :school_id %><br />
+    <%= form.text_field :school_id %>
   </div>
   <div class="field">
-    <%= resume.label :contact_id %><br />
-    <%= resume.text_field :contact_id %>
+    <%= form.label :contact_id %><br />
+    <%= form.text_field :contact_id %>
   </div>
   <div class="actions">
-    <%= resume.submit %>
+    <%= form.submit %>
   </div>
 <% end %>

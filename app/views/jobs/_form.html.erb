@@ -1,0 +1,32 @@
+<%= form_for ([@resume, @job]) do |form| %>
+  <% if @job.errors.any? %>
+    <div id="error_explanation">
+      <p><%= @job.errors.all %></p>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :company %><br />
+    <%= form.text_field :company %>
+  </div>
+  <div class="field">
+    <%= form.label :title %><br />
+    <%= form.text_field :title %>
+  </div>
+  <div class="field">
+    <%= form.label :description %><br />
+    <%= form.text_area :description %>
+  </div>
+  <div class="field">
+    <%= form.label :start_date %><br />
+    <%= form.date_select :start_date %>
+  </div>
+  <div class="field">
+    <%= form.label :end_date %><br />
+    <%= form.date_select :end_date %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+  <% end %>

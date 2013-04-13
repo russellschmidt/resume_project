@@ -4,7 +4,9 @@ ResumeProject::Application.routes.draw do
 
   devise_for :users
 
-  resources :resumes
+  resources :resumes do
+    resources :jobs
+  end
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

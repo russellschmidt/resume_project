@@ -32,10 +32,10 @@ class ResumesController < ApplicationController
   def update
     @resume = Resume.find(params[:id])
 
-    if @resume.update_attributes(params[:post])
+    if @resume.update_attributes(params[:resume])
       redirect_to @resume, notice: 'Resume update successful'
     else
-      render action: :new
+      render action: :edit
     end
   end
 

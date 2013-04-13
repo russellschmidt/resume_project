@@ -1,0 +1,34 @@
+<h1>Jobs for your <span><%= @resume.resume_name %></span> Resume</h1>
+<p>Pickles!</p>
+<p><%= link_to 'Create a new Job', new_resume_job_path %></p>
+<p><%= link_to 'Back to Resume', resume_path(@resume) %></p>  
+<table>
+  <thead>
+    <tr>
+      <th>Company</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Show</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @resume.jobs.each do |job|  %>
+    <tr>
+      <td><%= job.company  %></td>
+      <td><%= job.title  %></td>
+      <td><%= job.description %></td>
+      <td><%= job.start_date %></td>
+      <td><%= job.end_date %></td>
+      <td><%= link_to 'Show', resume_job_path(@resume,job) %></td>
+      <td><%= link_to 'Edit', edit_resume_job_path(@resume,job) %></td>
+      <td><%= link_to 'Destroy', @resume_job, method: :delete, data: { confirm: 'Are you sure?' } if user_signed_in? %></td>
+    </tr>
+    <% end %>
+  </tbody>
+  <tfoot>
+  </tfoot>
+</table>

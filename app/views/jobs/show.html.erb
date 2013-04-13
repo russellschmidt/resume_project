@@ -1,0 +1,20 @@
+<h1>Inspect a Job</h1>
+<p>Account: <%= current_user.email %></p>
+<p>Resume: <%= @resume.resume_name %></p>
+<%= render 'signout' %>
+<p><%= link_to 'Back to Job List', resume_jobs_path %></p>
+<p><%= link_to 'Edit Job', edit_resume_job_path(@resume) %></p>
+
+<dl>
+  <dt>Company</dt>
+  <dd><%= @job.company %></dd>
+  <dt>Title</dt>
+  <dd><%= @job.title %></dd>
+  <dt>Description</dt>
+  <dd><%= @job.description %></dd>
+  <dt>Start Date</dt>
+  <dd><%= @job.start_date %></dd>
+  <dt>End Date</dt>
+  <dd><%= @job.end_date %></dd>
+</dl>
+
