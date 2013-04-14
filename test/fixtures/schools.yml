@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 1
+  resume_id: 1
+  school_name: MyString
+  degree: MyString
+  major: MyString
+  description: MyText
+  start_date: 2013-04-13
+  end_date: 2013-04-13
+
+two:
+  user_id: 1
+  resume_id: 1
+  school_name: MyString
+  degree: MyString
+  major: MyString
+  description: MyText
+  start_date: 2013-04-13
+  end_date: 2013-04-13
