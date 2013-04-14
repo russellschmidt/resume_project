@@ -1,7 +1,10 @@
-<h1>Resume List for <%= current_user.email %></h1>
-<%= render 'signout' %>
-<%= link_to 'Create a Resume', new_resume_path %>
-<table>
+<div class="page-header">
+  <h1>Resume List <small><%= current_user.email %></small></h1>
+</div>
+<div>
+  <%= link_to 'Create a Resume', new_resume_path, class:"btn" %>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Resume Name</th>
@@ -31,3 +34,5 @@
   <tfoot>
   </tfoot>
 </table>
+
+<%= render 'signout' %>

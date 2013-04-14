@@ -1,9 +1,11 @@
-<h1>Inspect a Resume</h1>
-<p>Account: <%= current_user.email %></p>
+<div class="page-header">
+  <h1>Inspect a Resume <small><%= current_user.email %></small></h1>
+</div>
+
 <%= render 'signout' %>
 <%= link_to 'Back to List', resumes_path %>
 
-<dl>
+<dl class="dl-horizontal">
   <dt>Resume Name</dt>
   <dd><%= @resume.resume_name %></dd>
   <dt>Position</dt>

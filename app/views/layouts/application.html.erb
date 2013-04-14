@@ -7,9 +7,31 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
- <p class="notice"><%= notice %></p>
- <p class="alert"><%= alert %></p>
-<%= yield %>
+  <header class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <div id="logo">
+          <h1>ResumeGrandma</h1>
+        </div>
+        <nav>
+          <ul class="nav pull-right">
+            <li><%= link_to "Home", root_path %></li>
+            <li><%= link_to "Sign In", new_user_session_path %></li>
+            <li><%= link_to "Profile", edit_user_registration_path %></li>
+            <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+
+  <p class="alert"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  
+  <div class="container"
+    <%= yield %>
+  </div>
 
 </body>
 </html>
