@@ -1,17 +1,21 @@
-<%= form_for ([@resume, @job]) do |form| %>
-  <% if @job.errors.any? %>
+<%= form_for ([@resume, @school]) do |form| %>
+  <% if @school.errors.any? %>
     <div id="error_explanation">
-      <p><%= @job.errors.all %></p>
+      <p><%= @school.errors.all %></p>
     </div>
   <% end %>
 
   <div class="field">
-    <%= form.label :company %><br />
-    <%= form.text_field :company %>
+    <%= form.label :school_name %><br />
+    <%= form.text_field :school_name %>
   </div>
   <div class="field">
-    <%= form.label :title %><br />
-    <%= form.text_field :title %>
+    <%= form.label :degree %><br />
+    <%= form.text_field :degree %>
+  </div>
+  <div class="field">
+    <%= form.label :major %><br />
+    <%= form.text_field :major %>
   </div>
   <div class="field">
     <%= form.label :description %><br />
