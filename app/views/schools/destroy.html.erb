@@ -1,2 +1,6 @@
-<h1>Schools#destroy</h1>
-<p>Find me in app/views/schools/destroy.html.erb</p>
+<div class="page-header">
+  <h1>Delete Job in <%= @resume.resume_name %></h1>
+</div>
+
+<%= render 'signout' %>
+<%= link_to 'Back to List', resume_jobs_path, class:"btn" %>

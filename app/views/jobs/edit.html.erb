@@ -2,8 +2,13 @@
   <h1>Edit a Resume</h1>
 </div>
 
-<%= render 'signout' %>
 
-<%= link_to 'Back to List', resume_jobs_path %>
+<div class="btn-toolbar">
+  <%= link_to 'Job List', resume_jobs_path, class:"btn" %>
+  <%= link_to 'New Job', new_resume_job_path, class:"btn" %>
+  <%= link_to 'Delete Job', @resume_job, method: :delete, class:"btn", data: { confirm: 'Are you sure?' } if user_signed_in? %>
+</div>
 
 <%= render 'form' %>
+
+<%= render 'signout' %>

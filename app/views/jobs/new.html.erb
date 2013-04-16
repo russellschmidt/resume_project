@@ -2,8 +2,11 @@
   <h1>Create a Resume</h1>
 </div>
 
-<%= render 'signout' %>
 
-<%= link_to 'Back to List', resume_jobs_path %>
+<div class="btn-toolbar">
+  <%= link_to 'Back to Job List', resume_jobs_path, class:"btn" %>
+</div>
 
 <%= render 'form' %>
+
+<%= render 'signout' %>

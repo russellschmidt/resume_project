@@ -3,10 +3,11 @@
 </div>
 <p>Account: <%= current_user.email %></p>
 <p>Resume: <%= @resume.resume_name %></p>
-<%= render 'signout' %>
-<p><%= link_to 'Back to Job List', resume_jobs_path %></p>
-<p><%= link_to 'Edit Job', edit_resume_job_path(@resume) %></p>
 
+<div class="btn-toolbar">
+  <%= link_to 'Back to Job List', resume_jobs_path, class:"btn" %>
+  <%= link_to 'Edit Job', edit_resume_job_path(@resume), class:"btn" %>
+</div>
 <dl class="dl-horizontal">
   <dt>Company</dt>
   <dd><%= @job.company %></dd>
@@ -20,3 +21,4 @@
   <dd><%= @job.end_date %></dd>
 </dl>
 
+<%= render 'signout' %>

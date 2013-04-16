@@ -2,8 +2,26 @@
   <h1>Inspect a Resume <small><%= current_user.email %></small></h1>
 </div>
 
-<%= render 'signout' %>
-<%= link_to 'Back to List', resumes_path %>
+
+
+
+<% if user_signed_in? %>
+<div class="btn-toolbar">
+  <!-- Resume group -->
+  <div class="btn-group">
+    <%= link_to 'Resume List', resumes_path, class:"btn" %>
+    <%= link_to 'Edit this Resume', edit_resume_path(@resume), class:"btn" %>
+  </div>
+  <!-- Jobs group -->
+  <div class="btn-group">
+  <%= link_to 'Go to Jobs', resume_jobs_path(@resume), class:"btn" %>
+  <%= link_to 'Add a Job', new_resume_job_path(@resume), class:"btn" %>
+  </div>
+  <!-- Schools group -->
+  <div>
+  </div>
+</div>
+<% end %>
 
 <dl class="dl-horizontal">
   <dt>Resume Name</dt>
@@ -12,9 +30,9 @@
   <dd><%= @resume.position %></dd>
   <dt>Description</dt>
   <dd><%= @resume.description %></dd>
-  <dt>Job Titles</dt>
+  <dt>Jobs, by Title and Company</dt>
   <% @resume.jobs.each do |job| %>
-    <dd><%= job.title %></dd>
+    <dd><span><%= job.title %></span> at <span><%= job.company %></span> - <%= link_to "Edit", edit_resume_job_path(@resume) %></dd>
   <% end %>
   <dt>School</dt>
   <dd><%= @resume.school_id %></dd>
@@ -22,7 +40,5 @@
   <dd><%= @resume.contact_id %></dd>
 </dl>
 
-<% if user_signed_in? %>
-  <p><%= link_to 'Edit this Resume', edit_resume_path(@resume) %></p>
-  <p><%= link_to 'Edit the Jobs', edit_resume_job_path(@resume) %></p>
-<% end %>
+<hr>
+<%= render 'signout' %>
