@@ -15,4 +15,4 @@
 /tmp
 
 #ignore the custom fonts I loaded and can't get working
-/app/assets/fonts
+# /app/assets/fonts
