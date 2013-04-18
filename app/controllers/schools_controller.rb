@@ -1,6 +1,6 @@
 class SchoolsController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :resume_find, only: [:index, :show, :new, :create]
+  before_filter :resume_find
 
   def index
     #@resume = Resume.find(params[:resume_id])
@@ -30,15 +30,34 @@ class SchoolsController < ApplicationController
   end
 
 
-  def edit
+def edit
+    #@resume = Resume.find(params[:resume_id])
+    @school = @resume.schools.find(params[:id])
   end
 
   def update
-  end
+    #@resume = Resume.find(params[:resume_id])
+    @school = @resume.schools.find(params[:id])
 
+    if @school.update_attributes(params[:job])
+      redirect_to resume_school_path(@resume, @school), notice: "Successful update"
+    else
+      render action: :edit
+    end
+
+  end
 
   def destroy
+    #@resume = Resume.find(params[:resume_id])
+    @school = @resume.schools.find(params[:id])
+
+    if @school.destroy
+      redirect_to resume_school_url, notice: 'School deleted'
+    else
+      redirect_to resume_schools_path, notice: 'School delete failed'
+    end
   end
+
 
   private
   def resume_find
