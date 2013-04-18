@@ -1,2 +1,14 @@
-<h1>Schools#edit</h1>
-<p>Find me in app/views/schools/edit.html.erb</p>
+<div class="page-header">
+  <h1>Edit a School</h1>
+</div>
+
+
+<div class="btn-toolbar">
+  <%= link_to 'Job List', resume_jobs_path, class:"btn" %>
+  <%= link_to 'New Job', new_resume_job_path, class:"btn" %>
+  <%= link_to 'Delete Job', @resume_job, method: :delete, class:"btn", data: { confirm: 'Are you sure?' } if user_signed_in? %>
+</div>
+
+<%= render 'form' %>
+
+<%= render 'signout' %>

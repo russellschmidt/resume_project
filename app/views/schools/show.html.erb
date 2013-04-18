@@ -13,3 +13,20 @@
     <%= link_to 'Back to Resume', resume_path(@resume), class:"btn" %>
   </div>
 </div>
+
+<dl class="dl-horizontal">
+  <dt>School</dt>
+  <dd><%= @school.school_name %></dd>
+  <dt>Degree</dt>
+  <dd><%= @school.degree %></dd>
+  <dt>Major</dt>
+  <dd><%= @school.major %></dd>
+  <dt>Description</dt>
+  <dd><%= @school.description %></dd>
+  <dt>Start Date</dt>
+  <dd><%= @school.start_date %></dd>
+  <dt>End Date</dt>
+  <dd><%= @school.end_date %></dd>
+</dl>
+
+<%= render 'signout' %>

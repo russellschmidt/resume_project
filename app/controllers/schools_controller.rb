@@ -30,7 +30,7 @@ class SchoolsController < ApplicationController
   end
 
 
-def edit
+  def edit
     #@resume = Resume.find(params[:resume_id])
     @school = @resume.schools.find(params[:id])
   end
@@ -52,7 +52,7 @@ def edit
     @school = @resume.schools.find(params[:id])
 
     if @school.destroy
-      redirect_to resume_school_url, notice: 'School deleted'
+      redirect_to resume_schools_url, notice: 'School deleted'
     else
       redirect_to resume_schools_path, notice: 'School delete failed'
     end

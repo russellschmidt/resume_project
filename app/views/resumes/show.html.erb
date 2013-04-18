@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h1>Inspect a Resume <small><%= current_user.email %></small></h1>
+  <h1>Inspect a R&eacute;sum&eacute; <small><%= current_user.email %></small></h1>
 </div>
 
 <% if user_signed_in? %>
@@ -34,7 +34,9 @@
     <dd><span><%= job.title %></span> at <span><%= job.company %></span> - <%= link_to "Edit", edit_resume_job_path(@resume) %></dd>
   <% end %>
   <dt>School</dt>
-  <dd><%= @resume.school_id %></dd>
+  <% @resume.schools.each do |school| %>
+    <dd><span><%= school.degree %></span> at <span><%= school.school_name %></span> - <%= link_to "Edit", edit_resume_school_path(@resume) %></dd>
+  <% end %>
   <dt>Contact</dt>
   <dd><%= @resume.contact_id %></dd>
 </dl>

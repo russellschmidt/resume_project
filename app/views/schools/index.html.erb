@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h1>Schools for your <span><%= @resume.resume_name %></span> Resume</h1>
+  <h1>Schools List for <span><%= @resume.resume_name %></span></h1>
 </div>
 
 <div class="btn-toolbar">
@@ -36,7 +36,8 @@
       <td><%= school.end_date %></td>
       <td><%= link_to 'Show', resume_school_path(@resume,school) %></td>
       <td><%= link_to 'Edit', edit_resume_school_path(@resume,school) %></td>
-      <td><%= link_to 'Destroy', @resume_school, method: :delete, data: { confirm: 'Are you sure?' } if user_signed_in? %></td>
+      <td><%= link_to 'Destroy', resume_school_path(@resume, school), method: :delete, 
+        data: { confirm: 'Are you sure?' } %></td>
     </tr>
     <% end %>
   </tbody>
