@@ -12,4 +12,5 @@ class User < ActiveRecord::Base
   has_many :resumes
   has_many :jobs
   has_many :schools
+  has_many :contacts
 end

@@ -7,6 +7,7 @@ ResumeProject::Application.routes.draw do
   resources :resumes do
     resources :jobs
     resources :schools
+    resources :contacts
   end
   
 

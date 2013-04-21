@@ -1,24 +1,26 @@
 class JobsController < ApplicationController
 before_filter :authenticate_user!
+before_filter :resume_find
+
   
   def index
-    @resume = Resume.find(params[:resume_id])
+    #@resume = Resume.find(params[:resume_id])
     @jobs = @resume.jobs.all
   end
 
   def show
-    @resume = Resume.find(params[:resume_id])
+    #@resume = Resume.find(params[:resume_id])
     @job = @resume.jobs.find(params[:id])
   end
 
 
   def new
-    @resume = Resume.find(params[:resume_id])
+    #@resume = Resume.find(params[:resume_id])
     @job = @resume.jobs.build
   end
 
   def create
-    @resume = Resume.find(params[:resume_id])
+    #@resume = Resume.find(params[:resume_id])
     @job = @resume.jobs.build(params[:job])
 
     if @job.save
@@ -30,12 +32,12 @@ before_filter :authenticate_user!
 
 
   def edit
-    @resume = Resume.find(params[:resume_id])
+    #@resume = Resume.find(params[:resume_id])
     @job = @resume.jobs.find(params[:id])
   end
 
   def update
-    @resume = Resume.find(params[:resume_id])
+    #@resume = Resume.find(params[:resume_id])
     @job = @resume.jobs.find(params[:id])
 
     if @job.update_attributes(params[:job])
@@ -47,7 +49,7 @@ before_filter :authenticate_user!
   end
 
   def destroy
-    @resume = Resume.find(params[:resume_id])
+    #@resume = Resume.find(params[:resume_id])
     @job = @resume.jobs.find(params[:id])
 
     if @job.destroy
@@ -57,4 +59,9 @@ before_filter :authenticate_user!
     end
   end
 
+
+  private
+  def resume_find
+    @resume = Resume.find(params[:resume_id])
+  end
 end

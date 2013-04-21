@@ -7,7 +7,7 @@ html {
 }
 
 body {
-  padding-top: 10%;
+  padding-top: 80px;
 }
 
 /* typography */
@@ -32,6 +32,7 @@ p {
 
 
 /* header */
+
 #logo {
   float: left;
   margin: 1% 0% 1% 1%;
@@ -46,6 +47,13 @@ p {
   &:hover {
     color: #F00
   }
+}
+
+
+/* forms */
+
+textarea {
+  width: 60%;
 }
 
 

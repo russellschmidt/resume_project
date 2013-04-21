@@ -39,7 +39,7 @@ class SchoolsController < ApplicationController
     #@resume = Resume.find(params[:resume_id])
     @school = @resume.schools.find(params[:id])
 
-    if @school.update_attributes(params[:job])
+    if @school.update_attributes(params[:school])
       redirect_to resume_school_path(@resume, @school), notice: "Successful update"
     else
       render action: :edit
