@@ -1,13 +1,11 @@
 <div class="page-header">
   <h1>Edit a Job</h1>
 </div>
-
-
-<div class="btn-toolbar">
-  <%= link_to 'Job List', resume_jobs_path, class:"btn" %>
-  <%= link_to 'New Job', new_resume_job_path, class:"btn" %>
-  <%= link_to 'Delete Job', @resume_job, method: :delete, class:"btn", data: { confirm: 'Are you sure?' } if user_signed_in? %>
+<div class="well well-small">
+  <p>Edit this specific work experience.</p>
 </div>
+
+<%= render 'nav' %>
 
 <%= render 'form' %>
 

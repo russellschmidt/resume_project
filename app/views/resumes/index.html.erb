@@ -1,9 +1,13 @@
 <div class="page-header">
-  <h1>R&eacute;sum&eacute; List <small><%= current_user.email %></small></h1>
+  <h1>R&eacute;sum&eacute; List</h1>
 </div>
-<div>
-  <%= link_to 'Create a Resume', new_resume_path, class:"btn" %>
+<div class="well well-small">
+  <p>This page lists all your resumes. Create, review, delete or edit your resumes from here.
+  </p>
 </div>
+
+<%= render 'nav' %>
+
 <table class="table table-striped">
   <thead>
     <tr>
@@ -22,9 +26,21 @@
     <td><%= resume.resume_name %></td>
     <td><%= resume.position %></td>
     <td><%= resume.description %></td>
-    <td><%= resume.job_id %></td>
-    <td><%= resume.school_id %></td>
-    <td><%= resume.contact_id %></td>
+    <td>
+      <% resume.jobs.each do |job| %>
+        <%= job.company %>, <%= job.title %> <br><br>
+      <% end %>
+    </td>
+    <td>
+      <% resume.schools.each do |school| %>
+        <%= school.school_name %>, <%= school.degree %> <br><br>
+      <% end %>
+    </td>
+    <td>
+      <% resume.contacts.each do |contact| %>
+        <%= contact.address1 %>, <%= contact.zip %> <br><br>
+      <% end %>
+    </td>
     <td><%= link_to 'Show', resume %></td>
     <td><%= link_to 'Edit', edit_resume_path(resume) if user_signed_in? %></td>
     <td><%= link_to 'Destroy', resume, method: :delete, data: { confirm: 'Are you sure?' } if user_signed_in? %></td>
@@ -34,5 +50,3 @@
   <tfoot>
   </tfoot>
 </table>
-
-<%= render 'signout' %>

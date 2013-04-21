@@ -1,0 +1,25 @@
+<div class="nav">
+  <nav>
+    <div class="navbar navbar-inverse">
+      <div class="navbar-inner">
+        <div class="container">
+          <ul class="nav">
+            <li class="brand"><%= current_user.email %>'s <%= @resume.resume_name %> resume</li>
+            <li><%= link_to "Resume List", resumes_path %></li>
+            <li><%= link_to "Job List", resume_jobs_path %></li>
+            <li><%= link_to "School List", resume_schools_path %></li>
+            <li><%= link_to "Contact List", resume_contacts_path %></li> 
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<div class="btn-toolbar">
+  <%= link_to 'Job List', resume_jobs_path, class:"btn" %>
+  <%= link_to 'New Job', new_resume_job_path, class:"btn" %>
+  <% if @job %>
+    <%= link_to "Edit Job", edit_resume_job_path(@resume, @job), class:"btn" %>
+  <% end %>
+</div>

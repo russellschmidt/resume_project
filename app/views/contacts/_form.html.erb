@@ -1,0 +1,60 @@
+<%= form_for [@resume, @contact], html: {class:"form-horizontal"} do |form| %>
+  <% if @contact.errors.any? %>
+    <div id="error_explanation">
+      <p><%= @contact.errors.all %></p>
+    </div>
+  <% end %>
+
+  <div class="field control-group">
+    <%= form.label :first_name, class:"control-label" %><br />
+    <div class="controls"><%= form.text_field :first_name %></div>
+  </div>
+  <div class="field control-group">
+    <%= form.label :middle_name, class:"control-label" %><br />
+    <div class="controls"><%= form.text_field :middle_name %></div>
+  </div>
+  <div class="field control-group">
+    <%= form.label :last_name, class:"control-label" %><br />
+    <div class="controls"><%= form.text_field :last_name %></div>
+  </div>
+  <div class="field control-group">
+    <%= form.label :email, class:"control-label" %><br />
+    <div class="controls"><%= form.text_field :email %></div>
+  </div>
+  <div class="field control-group">
+    <%= form.label :phone, class:"control-label" %><br />
+    <div class="controls"><%= form.text_field :phone %></div>
+  </div>
+  <div class="field control-group">
+    <%= form.label :address1, class:"control-label" %><br />
+    <div class="controls"><%= form.text_field :address1 %></div>
+  </div>
+  <div class="field control-group">
+    <%= form.label :address2, class:"control-label" %><br />
+    <div class="controls"><%= form.text_field :address2 %></div>
+  </div>
+  <div class="field control-group">
+    <%= form.label :city, class:"control-label" %><br />
+    <div class="controls"><%= form.text_field :city %></div>
+  </div>
+  <div class="field control-group">
+    <%= form.label :state, class:"control-label" %><br />
+    <div class="controls"><%= form.text_field :state %></div>
+  </div>
+  <div class="field control-group">
+    <%= form.label :zip, class:"control-label" %><br />
+    <div class="controls"><%= form.text_field :zip %></div>
+  </div>
+  <div class="field control-group">
+    <%= form.label :twitter, class:"control-label" %><br />
+    <div class="controls"><%= form.text_field :twitter %></div>
+  </div>
+  <div class="field control-group">
+    <%= form.label :homepage, class:"control-label" %><br />
+    <div class="controls"><%= form.text_field :homepage %></div>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

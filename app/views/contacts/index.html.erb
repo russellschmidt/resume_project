@@ -1,0 +1,56 @@
+<div class="page-header">
+  <h1>R&eacute;sum&eacute; Contact Info List</h1>
+</div>
+<div class="well well-small">
+  <p>Review the contact info you have listed on this resume.</p>
+</div>
+<%= render 'nav' %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Twitter</th>
+      <th>Homepage</th>
+      <th>Show</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @resume.contacts.each do |contact|  %>
+    <tr>
+      <td>
+      <% if contact.middle_name %>
+        <%= contact.first_name %> <%= contact.middle_name %> <%= contact.last_name %>
+      <% else %>
+        <%= contact.first_name %> <%= contact.last_name %>
+      <% end %>
+      </td>
+      <td>
+        <% if contact.address2 %>
+          <%= contact.address1 %> 
+          <%= contact.address2 %>
+          <%= contact.city %>, <%= contact.state %> <%= contact.zip %>
+        <% else %>
+          <%= contact.address1 %>
+          <%= contact.city %>, <%= contact.state %> <%= contact.zip %>
+        <% end %>
+      </td>
+      <td><%= contact.phone %></td>
+      <td><%= contact.email %></td>
+      <td><%= contact.twitter %></td>
+      <td><%= contact.homepage %></td>
+      <td><%= link_to 'Show', resume_contact_path(@resume,contact) %></td>
+      <td><%= link_to 'Edit', edit_resume_contact_path(@resume,contact) %></td>
+      <td><%= link_to 'Destroy', resume_contact_path(@resume, contact), method: :delete, 
+        data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+  </tbody>
+  <tfoot>
+  </tfoot>
+</table>

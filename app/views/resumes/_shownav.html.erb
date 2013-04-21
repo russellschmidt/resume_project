@@ -1,0 +1,23 @@
+<div class="nav">
+  <nav>
+    <div class="navbar navbar-inverse">
+      <div class="navbar-inner">
+        <div class="container">
+          <ul class="nav">
+            <li class="brand"><%= current_user.email %> <%= @resume.resume_name %></li>
+            <li><%= link_to "Resume list", resumes_path %></li>
+            <li><%= link_to "New resume", new_resume_path %></li>
+            <% if @resume %>
+              <li>
+                <%= link_to "Edit Resume", edit_resume_path(@resume) %>
+              </li>
+            <% end %>
+            <li><%= link_to "Jobs", resume_jobs_path(@resume) %></li>
+            <li><%= link_to "Schools", resume_schools_path(@resume) %></li>
+            <li><%= link_to "Contacts", resume_contacts_path(@resume) %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>

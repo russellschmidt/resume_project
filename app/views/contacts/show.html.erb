@@ -1,0 +1,33 @@
+<div class="page-header">
+  <h1>Review Your R&eacute;sum&eacute; Contact Info</h1>
+</div>
+<div class="well well-small">
+  <p>Review the contact info going onto your resume.</p>
+</div>
+<%= render 'nav' %>
+<dl class="dl-horizontal">
+  <dt>Name</dt>
+  <% if @contact.middle_name %>
+    <dd><%= @contact.first_name %> <%= @contact.middle_name %> <%= @contact.last_name %></dd>
+  <% else %>
+    <dd><%= @contact.first_name %> <%= @contact.last_name %></dd>
+  <% end %>
+  <dt>Address</dt>
+  <dd><%= @contact.address1 %></dd>
+  <% if @contact.address2 %>
+    <dd><%= @contact.address2 %></dd>
+  <% end %>
+  <dd><%= @contact.city %>, <%= @contact.state %> <%= @contact.zip %></dd>
+  <dt>Phone</dt>
+  <dd><%= @contact.phone %></dd>
+  <dt>Email</dt>
+  <dd><%= @contact.email %></dd>
+  <% if @contact.twitter %>
+    <dt>Twitter</dt>
+    <dd><%= @contact.twitter %></dd>
+  <% end %>
+  <% if @contact.homepage %>
+    <dt>Home Page</dt>
+    <dd><%= @contact.homepage %></dd>
+  <% end %>
+</dl>

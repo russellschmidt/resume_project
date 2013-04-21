@@ -1,0 +1,15 @@
+<div class="nav">
+  <nav>
+    <div class="navbar navbar-inverse">
+      <div class="navbar-inner">
+        <div class="container">
+          <ul class="nav">
+            <li class="brand"><%= current_user.email %></li>
+            <li><%= link_to "Resume list", resumes_path %></li>
+            <li><%= link_to "Make a new resume", new_resume_path %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>

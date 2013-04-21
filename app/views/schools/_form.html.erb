@@ -1,33 +1,33 @@
-<%= form_for ([@resume, @school]) do |form| %>
+<%= form_for [@resume, @school], html: {class:"form-horizontal"} do |form| %>
   <% if @school.errors.any? %>
     <div id="error_explanation">
       <p><%= @school.errors.all %></p>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :school_name %><br />
-    <%= form.text_field :school_name %>
+  <div class="field control-group">
+    <%= form.label :school_name, class:"control-label" %><br />
+    <div class="controls"><%= form.text_field :school_name %></div>
   </div>
-  <div class="field">
-    <%= form.label :degree %><br />
-    <%= form.text_field :degree %>
+  <div class="field control-group">
+    <%= form.label :degree, class:"control-label" %><br />
+    <div class="controls"><%= form.text_field :degree %></div>
   </div>
-  <div class="field">
-    <%= form.label :major %><br />
-    <%= form.text_field :major %>
+  <div class="field control-group">
+    <%= form.label :major, class:"control-label" %><br />
+    <div class="controls"><%= form.text_field :major %></div>
   </div>
-  <div class="field">
-    <%= form.label :description %><br />
-    <%= form.text_area :description %>
+  <div class="field control-group">
+    <%= form.label :description, class:"control-label" %><br />
+    <div class="controls"><%= form.text_area :description, rows: "6" %></div>
   </div>
-  <div class="field">
-    <%= form.label :start_date %><br />
-    <%= form.date_select :start_date %>
+  <div class="field control-group">
+    <%= form.label :start_date, class:"control-label" %><br />
+    <div class="controls"><%= form.date_select :start_date %></div>
   </div>
-  <div class="field">
-    <%= form.label :end_date %><br />
-    <%= form.date_select :end_date %>
+  <div class="field control-group">
+    <%= form.label :end_date, class:"control-label" %><br />
+    <div class="controls"><%= form.date_select :end_date %></div>
   </div>
 
   <div class="actions">

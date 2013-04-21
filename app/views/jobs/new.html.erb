@@ -1,21 +1,11 @@
 <div class="page-header">
   <h1>Create a Job</h1>
 </div>
-
-
-<div class="btn-toolbar">
-  <div class="btn-group">
-    <%= link_to 'Back to Job List', resume_jobs_path, class:"btn" %>
-  </div>
-  <div class="btn-group">
-    <%= link_to 'Create a new School', new_resume_school_path, class:"btn" %>
-    <%= link_to 'Back to Schools', resumes_path, class:"btn" %>
-  </div>
-  <div class="btn-group">
-    <%= link_to 'Back to Resume', resume_path(@resume), class:"btn" %>
-  </div>
+<div class="well well-small">
+  <p>Add new work experience to your resume.</p>
 </div>
 
+<%= render 'nav' %>
 
 <%= render 'form' %>
 

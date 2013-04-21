@@ -1,13 +1,11 @@
 <div class="page-header">
   <h1>Inspect a Job</h1>
 </div>
-<p>Account: <%= current_user.email %></p>
-<p>Resume: <%= @resume.resume_name %></p>
-
-<div class="btn-toolbar">
-  <%= link_to 'Back to Job List', resume_jobs_path, class:"btn" %>
-  <%= link_to 'Edit Job', edit_resume_job_path(@resume), class:"btn" %>
+<div class="well well-small">
+  <p>Review this specific work experience.</p>
 </div>
+<%= render 'nav' %>
+
 <dl class="dl-horizontal">
   <dt>Company</dt>
   <dd><%= @job.company %></dd>

@@ -1,26 +1,10 @@
 <div class="page-header">
-  <h1>Inspect a R&eacute;sum&eacute; <small><%= current_user.email %></small></h1>
+  <h1>Inspect a R&eacute;sum&eacute;</h1>
 </div>
-
-<% if user_signed_in? %>
-<div class="btn-toolbar">
-  <!-- Resume group -->
-  <div class="btn-group">
-    <%= link_to 'Resume List', resumes_path, class:"btn" %>
-    <%= link_to 'Edit this Resume', edit_resume_path(@resume), class:"btn" %>
-  </div>
-  <!-- Jobs group -->
-  <div class="btn-group">
-  <%= link_to 'Go to Jobs', resume_jobs_path(@resume), class:"btn" %>
-  <%= link_to 'Add a Job', new_resume_job_path(@resume), class:"btn" %>
-  </div>
-  <!-- Schools group -->
-  <div class="btn-group">
-  <%= link_to 'Go to Schools', resume_schools_path(@resume), class:"btn" %>
-  <%= link_to 'Add a School', new_resume_school_path(@resume), class:"btn" %>
-  </div>
+<div class="well well-small">
+  <p>Review an existing resume, with links to work, education and contact info.</p>
 </div>
-<% end %>
+<%= render 'shownav' %>
 
 <dl class="dl-horizontal">
   <dt>Resume Name</dt>
@@ -31,15 +15,17 @@
   <dd><%= @resume.description %></dd>
   <dt>Jobs, by Title and Company</dt>
   <% @resume.jobs.each do |job| %>
-    <dd><span><%= job.title %></span> at <span><%= job.company %></span> - <%= link_to "Edit", edit_resume_job_path(@resume) %></dd>
+    <dd><span><%= job.title %></span> at <span><%= job.company %></span> - <%= link_to "Edit", edit_resume_job_path(@resume, job) %></dd>
   <% end %>
+  <dd><%= link_to "Add a new job", new_resume_job_path(@resume) %></dd>
   <dt>School</dt>
   <% @resume.schools.each do |school| %>
-    <dd><span><%= school.degree %></span> at <span><%= school.school_name %></span> - <%= link_to "Edit", edit_resume_school_path(@resume) %></dd>
+    <dd><span><%= school.degree %></span> at <span><%= school.school_name %></span> - <%= link_to "Edit", edit_resume_school_path(@resume, school) %></dd>
   <% end %>
+  <dd><%= link_to "Add a new school", new_resume_school_path(@resume) %></dd>
   <dt>Contact</dt>
-  <dd><%= @resume.contact_id %></dd>
+  <% @resume.contacts.each do |contact| %>
+    <dd>Mail: <span><%= contact.city %></span>, Phone: <span><%= contact.phone %></span>, Email: <span><%= contact.email %></span> - <%= link_to "Edit", edit_resume_contact_path(@resume, contact) %></dd>
+  <% end %>
+  <dd><%= link_to "Add a new contact", new_resume_contact_path(@resume) %></dd>
 </dl>
-
-<hr>
-<%= render 'signout' %>
