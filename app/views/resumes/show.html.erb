@@ -6,6 +6,11 @@
 </div>
 <%= render 'shownav' %>
 
+<div>
+  <%= link_to "Printable PDF", resume_path(@resume, format: "pdf"),
+    class: "btn btn-primary btn-large " %>
+</div>
+
 <dl class="dl-horizontal">
   <dt>Resume Name</dt>
   <dd><%= @resume.resume_name %></dd>

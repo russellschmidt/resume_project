@@ -7,6 +7,16 @@ class ResumesController < ApplicationController
 
   def show
     @resume = current_user.resumes.find(params[:id])
+
+    # actions for rendering as PDF via Prawn here
+    respond_to do |format|
+      format.html
+      format.pdf do 
+        pdf = ResumePdf.new(@resume)
+        send_data pdf.render, filename: "#{@resume.resume_name}.pdf", 
+          type: "application/pdf", disposition: "inline"
+      end
+    end
   end
 
 
