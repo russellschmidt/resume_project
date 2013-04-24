@@ -19,7 +19,7 @@ gem 'bootstrap-sass', '2.0.0'
 
 gem 'prawn'
 
-gem 'strong_parameters', '~>0.2.0'
+#gem 'strong_parameters', '~>0.2.0'
 
 # Gems used only for assets and not required
 # in production environments by default.

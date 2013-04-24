@@ -19,7 +19,7 @@
 <div class="btn-toolbar">
   <%= link_to 'Contact List', resume_contacts_path, class:"btn" %>
   <%= link_to 'New Contact', new_resume_contact_path, class:"btn" %>
-  <% if @contact %>
+  <% if @resume.contact_id %>
     <%= link_to "Edit Contact", edit_resume_contact_path(@resume,@contact), class:"btn" %>
   <% end %>
 </div>

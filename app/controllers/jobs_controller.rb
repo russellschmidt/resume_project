@@ -21,10 +21,10 @@ before_filter :resume_find
 
   def create
     #@resume = Resume.find(params[:resume_id])
-    @job = @resume.jobs.build(job_params)
+    @job = @resume.jobs.build(params[:job])
 
     if @job.save
-      redirect_to resume_job_path(@resume, @job)
+      redirect_to [@resume, @job], notice: "Successful save"
     else
       render action: :new
     end
@@ -40,7 +40,7 @@ before_filter :resume_find
     #@resume = Resume.find(params[:resume_id])
     @job = @resume.jobs.find(params[:id])
 
-    if @job.update_attributes(job_params)
+    if @job.update_attributes(params[:job])
       redirect_to resume_job_path(@resume, @job), notice: "Successful update"
     else
       render action: :edit
@@ -66,7 +66,7 @@ before_filter :resume_find
   end
 
   # replace params[:job] with job_params in create, update
-  def job_params
-    params.require(:job).permit(:company, :description, :end_date, :start_date, :title)
-  end
+  #def job_params
+  #  params.require(:job).permit(:company, :description, :end_date, :start_date, :title)
+  #end
 end

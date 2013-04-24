@@ -19,11 +19,16 @@
   <dt>Description</dt>
   <dd><%= @resume.description %></dd>
   <dt>Jobs, by Title and Company</dt>
-  <% @resume.jobs.each do |job| %>
-    <dd><%= link_to "Edit", edit_resume_job_path(@resume, job), class: "btn btn-small btn-info" %>
+  <% if @resume.jobs.all %>
+    <% @resume.jobs.each do |job| %>
+
+      <dd><%= link_to "Edit", edit_resume_job_path(@resume, job), class: "btn btn-small btn-info" %>
       <span><%= job.title %></span> at <span><%= job.company %></span></dd>
+    <% end %>
   <% end %>
+
   <dd><%= link_to "Add a new job", new_resume_job_path(@resume), class: "btn btn-small btn-success" %></dd>
+
   <dt>School</dt>
   <% @resume.schools.each do |school| %>
     <dd><%= link_to "Edit", edit_resume_school_path(@resume, school), class: "btn btn-small btn-info" %><span><%= school.degree %></span> at <span><%= school.school_name %></span> </dd>
