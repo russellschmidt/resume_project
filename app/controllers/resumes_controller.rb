@@ -12,11 +12,14 @@ class ResumesController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do 
+        # traditional resume
         pdf = ResumePdf.new(@resume)
         send_data pdf.render, filename: "#{@resume.resume_name}.pdf", 
           type: "application/pdf", disposition: "inline"
+        
       end
     end
+
   end
 
 
@@ -25,7 +28,7 @@ class ResumesController < ApplicationController
   end
 
   def create
-    @resume = current_user.resumes.build(params[:resume])
+    @resume = current_user.resumes.build(resume_params)
 
     if @resume.save
       redirect_to @resume, notice: 'Resume created'
@@ -42,7 +45,7 @@ class ResumesController < ApplicationController
   def update
     @resume = Resume.find(params[:id])
 
-    if @resume.update_attributes(params[:resume])
+    if @resume.update_attributes(resume_params)
       redirect_to @resume, notice: 'Resume update successful'
     else
       render action: :edit
@@ -57,5 +60,11 @@ class ResumesController < ApplicationController
     else
       redirect_to @resume, notice: 'Resume delete failed'
     end
+  end
+
+  #strong_parameters method for all former (params[:resume])
+  private 
+  def resume_params
+    params.require(:resume).permit(:description, :position, :resume_name)
   end
 end

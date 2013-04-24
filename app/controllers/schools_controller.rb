@@ -20,7 +20,7 @@ class SchoolsController < ApplicationController
 
   def create
     #@resume = Resume.find(params[:resume_id])
-    @school = @resume.schools.build(params[:school])
+    @school = @resume.schools.build(school_params)
 
     if @school.save
       redirect_to resume_schools_path(@resume, @school)
@@ -39,7 +39,7 @@ class SchoolsController < ApplicationController
     #@resume = Resume.find(params[:resume_id])
     @school = @resume.schools.find(params[:id])
 
-    if @school.update_attributes(params[:school])
+    if @school.update_attributes(school_params)
       redirect_to resume_school_path(@resume, @school), notice: "Successful update"
     else
       render action: :edit
@@ -62,5 +62,10 @@ class SchoolsController < ApplicationController
   private
   def resume_find
     @resume = Resume.find(params[:resume_id])
+  end
+
+  # replace params[:school] with school_params in create, update
+  def school_params
+    params.require(:school).permit(:degree, :description, :end_date, :major, :school_name, :start_date)
   end
 end

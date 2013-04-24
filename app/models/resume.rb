@@ -4,7 +4,7 @@ class Resume < ActiveRecord::Base
   validates :description, :position, :resume_name, :presence => true
 
   belongs_to :user
-  has_many :jobs
-  has_many :schools
+  has_many :jobs, order: 'end_date desc'
+  has_many :schools, order: 'end_date desc'
   has_many :contacts
 end

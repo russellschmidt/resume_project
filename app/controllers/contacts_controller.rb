@@ -17,7 +17,7 @@ class ContactsController < ApplicationController
   end
 
   def create
-    @contact = @resume.contacts.build(params[:contact])
+    @contact = @resume.contacts.build(contact_params)
 
     if @contact.save
       redirect_to resume_contact_path(@resume, @contact)
@@ -35,7 +35,7 @@ class ContactsController < ApplicationController
   def update
     @contact = @resume.contacts.find(params[:id])
 
-    if @contact.update_attributes(params[:contact])
+    if @contact.update_attributes(contact_params)
       redirect_to resume_contact_path(@resume, @contact), notice: "Successful update"
     else
       render action: :edit
@@ -59,5 +59,10 @@ class ContactsController < ApplicationController
   private
   def resume_find
     @resume = Resume.find(params[:resume_id])
+  end
+
+  #strong_parameters method for all former (params[:contact])
+  def contact_params
+    params.require(:contact).permit(:address1, :address2, :city, :email, :first_name, :homepage, :last_name, :middle_name, :phone, :state, :twitter, :zip)
   end
 end

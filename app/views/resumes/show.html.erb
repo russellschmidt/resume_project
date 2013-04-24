@@ -20,17 +20,18 @@
   <dd><%= @resume.description %></dd>
   <dt>Jobs, by Title and Company</dt>
   <% @resume.jobs.each do |job| %>
-    <dd><span><%= job.title %></span> at <span><%= job.company %></span> - <%= link_to "Edit", edit_resume_job_path(@resume, job) %></dd>
+    <dd><%= link_to "Edit", edit_resume_job_path(@resume, job), class: "btn btn-small btn-info" %>
+      <span><%= job.title %></span> at <span><%= job.company %></span></dd>
   <% end %>
-  <dd><%= link_to "Add a new job", new_resume_job_path(@resume) %></dd>
+  <dd><%= link_to "Add a new job", new_resume_job_path(@resume), class: "btn btn-small btn-success" %></dd>
   <dt>School</dt>
   <% @resume.schools.each do |school| %>
-    <dd><span><%= school.degree %></span> at <span><%= school.school_name %></span> - <%= link_to "Edit", edit_resume_school_path(@resume, school) %></dd>
+    <dd><%= link_to "Edit", edit_resume_school_path(@resume, school), class: "btn btn-small btn-info" %><span><%= school.degree %></span> at <span><%= school.school_name %></span> </dd>
   <% end %>
-  <dd><%= link_to "Add a new school", new_resume_school_path(@resume) %></dd>
+  <dd><%= link_to "Add a new school", new_resume_school_path(@resume), class: "btn btn-small btn-success" %></dd>
   <dt>Contact</dt>
   <% @resume.contacts.each do |contact| %>
-    <dd>Mail: <span><%= contact.city %></span>, Phone: <span><%= contact.phone %></span>, Email: <span><%= contact.email %></span> - <%= link_to "Edit", edit_resume_contact_path(@resume, contact) %></dd>
+    <dd><%= link_to "Edit", edit_resume_contact_path(@resume, contact), class: "btn btn-small btn-info" %>Mail: <span><%= contact.city %></span>, Phone: <span><%= contact.phone %></span>, Email: <span><%= contact.email %></span></dd>
   <% end %>
-  <dd><%= link_to "Add a new contact", new_resume_contact_path(@resume) %></dd>
+  <dd><%= link_to "Add a new contact", new_resume_contact_path(@resume), class: "btn btn-small btn-success" %></dd>
 </dl>
