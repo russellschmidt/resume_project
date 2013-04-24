@@ -5,8 +5,7 @@ ResumeProject::Application.routes.draw do
   #had to modify devise from just 'devise_for :users' bc strong_parameters broke devise
   #see https://gist.github.com/kazpsp/3350730
 
-  devise_for :users
-  #, :controllers => {:registrations => "users/registrations", :passwords => "users/passwords"}
+  devise_for :users, :controllers => {:registrations => "users/registrations", :passwords => "users/passwords"}
 
   resources :resumes do
     resources :jobs
